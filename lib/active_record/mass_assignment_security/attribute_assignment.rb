@@ -15,6 +15,8 @@ module ActiveRecord
           default = [ primary_key, inheritance_column ]
           default << 'id' unless primary_key.eql? 'id'
           default
+        rescue ActiveRecord::NoDatabaseError
+          []
         end
       end
 
